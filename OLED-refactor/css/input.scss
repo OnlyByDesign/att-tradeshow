@@ -1,0 +1,193 @@
+@use "fonts";
+@use "type";
+@use "keyframes";
+@use "base";
+@use "handle";
+
+section {
+    position: absolute;
+    width: 1920px; 
+    height: 1080px;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+button.reset {
+    position: absolute;
+    width: 200px; 
+    height: 150px; 
+    z-index: 3; 
+    background-color: transparent;
+}
+nav {
+    .accordian {
+        &, .accordian * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        &-action {
+            width: 100%;
+            display: block;
+            &.action {
+                max-height: 100%;
+                background: grey;
+            }
+        }
+        &-content {
+            max-height: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
+        &-section, 
+        &-action, 
+        &-content { 
+            -webkit-transition: max-height .5s; 
+            -moz-transition: max-height .5s; 
+            transition: max-height .5s;
+        }
+    }
+    &.ui {
+        position: absolute; 
+        width: 330px; 
+        height: fit-content; 
+        top: 5%; 
+        right: 30px; 
+        background-color: transparent; 
+        z-index: 3; 
+        padding: 18px 16px; 
+        border-right: 1px solid #fff; 
+        border-left: 1px solid #fff;
+        display: none;
+        .ui-main {
+            display: block;
+            %menu-shared {
+                position: relative;
+                width: 100%;
+                display: block; 
+                overflow: visible !important;
+            }
+            .menu-item {
+                background-color: transparent; 
+                z-index: 2; 
+                cursor: pointer; 
+                border: 1px solid #fff;
+            }
+            .menu-top {
+                .menu-item {
+                    @extend %menu-shared;
+                    height: 95px;
+                    margin-bottom: 18px;
+                }
+            }
+            .menu-sub {
+                margin-bottom: 2.5px;
+                background-color: rgba(135,206,250,0.05); 
+                .menu-item {
+                    @extend %menu-shared; 
+                    height: 75px; 
+                    margin-bottom: 0;
+                    &:first-child {
+                        margin-top: -18px;
+                    }
+                    &:last-child {
+                        margin-bottom: 18px;
+                    }
+                }
+                .focus {
+                    height:88px !important;
+                    background-color: grey;
+                }
+            }
+            #sub {
+                &_1, &_2, &_3 {
+                    .active {
+                        background-color: rgba(135,206,250,0.5);
+                    }
+                }
+                &_3 {
+                    .menu-item {
+                        &:first-child {
+                            margin-top: -3px;
+                        }
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.dir {
+        position: absolute; 
+        width: 1920px; 
+        height:1080px;
+        display: none;
+        button {
+            &.subnav {
+                position: absolute; 
+                z-index: 3; 
+                background-color: transparent;
+                &:focus {
+                    background-color: transparent;
+                }
+                &.sb { 
+                    left: 8.75%
+                }
+                &.sf { 
+                    right: 30.25%; 
+                }
+                &.sb, &.sf {
+                    width: 65px; 
+                    height: 65px; 
+                    top: 47%;
+                }
+                &.tap {
+                    top: 56%; 
+                    width: 275px; 
+                    height: 65px; 
+                    left: 10.65%;
+                }
+            }
+        }
+    }
+    button {
+        &:focus {
+            background-color: rgba(135,206,250,0.5);
+            >h3, >p {
+                opacity: 1 !important;
+            }
+        }
+    }
+    .active {
+        h1,
+        h3,
+        p {
+            opacity: 1 !important;
+        }
+        >.accordian-action {
+            border: 1px solid #fff !important;
+            background-color: grey; 
+            h1, p {
+                color: #fff; opacity: 1 !important;
+            }
+        }
+        >.accordian-content { 
+            max-height: 1000px; 
+            visibility: visible;
+            overflow: visible;
+        }
+    }
+}
+main {
+    &.container {
+        position: relative; 
+        width: 100%; 
+        max-width: 1920px; 
+        top: 0; 
+        left: 0; 
+        margin: 0 auto; 
+        z-index: 2;
+        background-color: black;
+    }
+}

@@ -1,0 +1,659 @@
+@font-face {
+  font-family: "AleckCmp-Medium";
+  src: local("ATTAleckCmp-Medium"), url("fonts/ATTAleckCmp-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckCmp-Light";
+  src: local("ATTAleckCmp-Light"), url("fonts/ATTAleckCmp-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckCd-Black";
+  src: local("ATTAleckCd-Black"), url("fonts/ATTAleckCd-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckCd-Bold";
+  src: local("ATTAleckCd-Bold"), url("fonts/ATTAleckCd-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckCd-Light";
+  src: local("ATTAleckCd-Light"), url("fonts/ATTAleckCd-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckCd-Medium";
+  src: local("ATTAleckCd-Medium"), url("fonts/ATTAleckCd-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckCd-Regular";
+  src: local("ATTAleckCd-Regular"), url("fonts/ATTAleckCd-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckSans-Bold";
+  src: local("ATTAleckSans-Bold"), url("fonts/ATTAleckSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckSans-Medium";
+  src: local("ATTAleckSans-Medium"), url("fonts/ATTAleckSans-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckSans-Regular";
+  src: local("ATTAleckSans-Regular"), url("fonts/ATTAleckSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AleckSans-Thin";
+  src: local("ATTAleckSans-Thin"), url("fonts/ATTAleckSans-Thin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+h1, h2, h3, h4, h5, p {
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+}
+
+h1 {
+  font-family: "AleckCd-Medium", Arial, sans-serif;
+  font-size: 185%;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin-top: 2.5px;
+}
+
+h2 {
+  font-family: "AleckCd-Medium", Arial, sans-serif;
+  font-size: 230%;
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 27px;
+  padding: 7.5px 0 10px 0;
+  padding-top: 7.5px;
+  letter-spacing: 0.5px;
+  opacity: 1;
+}
+
+h3 {
+  font-family: "AleckCd-Medium", Arial, sans-serif;
+  font-size: 150%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding: 16px 0;
+  line-height: 24px;
+  letter-spacing: 2.75px;
+}
+
+p {
+  font-family: "AleckCd-Bold", Arial, sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+p.ui-cta {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: absolute;
+  top: -15px;
+  right: 0;
+  left: 0;
+}
+
+button p {
+  font-family: "AleckCd-Light", Arial, sans-serif;
+  font-size: 19px;
+  margin: 0 auto;
+  margin-top: -4px;
+  line-height: 22.5px;
+  text-transform: none;
+  width: 90%;
+  text-align: center;
+}
+
+@keyframes triggerIntro {
+  0% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    opacity: 1;
+    color: white;
+  }
+}
+.triggerIn {
+  animation-fill-mode: both;
+  animation-duration: 3s;
+  animation-name: triggerIntro;
+}
+
+@keyframes triggerOutro {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.triggerOut {
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-name: triggerOutro;
+}
+
+@keyframes openSceneSlide {
+  0% {
+    height: 0px;
+    width: 0px;
+    right: 190px;
+    overflow: hidden;
+    transform: translateY(-200px);
+  }
+  15% {
+    transform: translateY(0px);
+  }
+  49% {
+    right: 190px;
+    height: 330px;
+    width: 0px;
+  }
+  50% {
+    right: 190px;
+    width: 0px;
+  }
+  100% {
+    right: 30px;
+    width: 330px;
+    overflow: visible;
+  }
+}
+.start1 {
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  animation-duration: 2s;
+  animation-name: openSceneSlide;
+}
+
+@keyframes moveInHandles {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  95% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+.start2 {
+  animation-delay: 2.1s;
+  animation-duration: 1.85s;
+  animation-name: moveInHandles;
+  animation-fill-mode: both;
+}
+
+@keyframes startInFromTop {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.start3 {
+  animation-delay: 4.25s;
+  animation-duration: 0.2s;
+  animation-name: startInFromTop;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+    transition-delay: 5s;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.menu-top button:nth-child(1) {
+  animation-duration: 0.2s;
+  animation-name: slideInFromTop;
+}
+
+.menu-top button:nth-child(2) {
+  animation-duration: 0.4s;
+  animation-name: slideInFromTop;
+}
+
+.menu-top button:nth-child(3) {
+  animation-duration: 0.6s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(1) {
+  animation-duration: 0.8s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(2) {
+  animation-duration: 1s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(3) {
+  animation-duration: 1.1s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(4) {
+  animation-duration: 1.2s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(5) {
+  animation-duration: 1.3s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(6) {
+  animation-duration: 1.35s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(7) {
+  animation-duration: 1.4s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(8) {
+  animation-duration: 1.45s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(9) {
+  animation-duration: 1.5s;
+  animation-name: slideInFromTop;
+}
+
+.menu-sub button:nth-child(10) {
+  animation-duration: 1.55s;
+  animation-name: slideInFromTop;
+}
+
+@keyframes slideInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.subIn {
+  animation-fill-mode: both;
+  animation-delay: 2s;
+  animation-duration: 0.5s;
+  animation-name: slideInTop;
+}
+
+@keyframes homeSlideUp {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 100px;
+  }
+}
+.homeIn {
+  animation-fill-mode: both;
+  animation-delay: 0.01s;
+  animation-duration: 1s;
+  animation-name: homeSlideUp;
+}
+
+@keyframes slideOutBottom {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+.overOut {
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  animation-duration: 1s;
+  animation-name: slideOutBottom;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+*:focus {
+  outline: none;
+}
+* html, * html body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1;
+  overflow: hidden;
+}
+* html body,
+* html div,
+* html button, * html body body,
+* html body div,
+* html body button {
+  transition: 0.5s;
+  /*cursor: none;*/
+}
+* html section, * html body section {
+  pointer-events: none;
+  cursor: default;
+}
+* html video, * html body video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+* html button, * html body button {
+  border: none;
+}
+* html textarea:focus,
+* html input:focus, * html body textarea:focus,
+* html body input:focus {
+  outline: none;
+}
+
+/*Handle Styles*/
+.handler {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+.handler span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+}
+.handler .dr {
+  bottom: -5px;
+  right: -5px;
+}
+.handler .ul {
+  top: -5px;
+  left: -5px;
+}
+.handler .dl {
+  bottom: -5px;
+  left: -5px;
+}
+.handler .ur {
+  top: -5px;
+  right: -5px;
+}
+
+.brdr-handler {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#nav-brdr {
+  position: absolute;
+  width: 31px;
+  height: 1.5px;
+  background-color: white;
+  z-index: 3;
+}
+
+:last-child #nav-brdr span {
+  width: 15px;
+  height: 7.5px;
+}
+
+.top-brdr-r {
+  right: -1px;
+  top: -3px;
+}
+
+.top-brdr-r span {
+  top: -2px;
+  left: -5px;
+}
+
+.top-brdr-l {
+  right: 330px;
+  top: -1px;
+}
+
+.top-brdr-l span {
+  top: -4px;
+  right: -3px;
+}
+
+.bot-brdr-r {
+  right: -1px;
+  bottom: 0px;
+}
+
+.bot-brdr-r span {
+  bottom: -3px;
+  left: -5px;
+}
+
+.bot-brdr-l {
+  right: 330px;
+  bottom: 1px;
+}
+
+.bot-brdr-l span {
+  bottom: -3px;
+  right: -4px;
+}
+
+section {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+button.reset {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  z-index: 3;
+  background-color: transparent;
+}
+
+nav .accordian, nav .accordian .accordian * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+nav .accordian-action {
+  width: 100%;
+  display: block;
+}
+nav .accordian-action.action {
+  max-height: 100%;
+  background: grey;
+}
+nav .accordian-content {
+  max-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+nav .accordian-section, nav .accordian-action, nav .accordian-content {
+  -webkit-transition: max-height 0.5s;
+  -moz-transition: max-height 0.5s;
+  transition: max-height 0.5s;
+}
+nav.ui {
+  position: absolute;
+  width: 330px;
+  height: fit-content;
+  top: 5%;
+  right: 30px;
+  background-color: transparent;
+  z-index: 3;
+  padding: 18px 16px;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  display: none;
+}
+nav.ui .ui-main {
+  display: block;
+}
+nav.ui .ui-main .menu-sub .menu-item, nav.ui .ui-main .menu-top .menu-item {
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow: visible !important;
+}
+nav.ui .ui-main .menu-item {
+  background-color: transparent;
+  z-index: 2;
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+nav.ui .ui-main .menu-top .menu-item {
+  height: 95px;
+  margin-bottom: 18px;
+}
+nav.ui .ui-main .menu-sub {
+  margin-bottom: 2.5px;
+  background-color: rgba(135, 206, 250, 0.05);
+}
+nav.ui .ui-main .menu-sub .menu-item {
+  height: 75px;
+  margin-bottom: 0;
+}
+nav.ui .ui-main .menu-sub .menu-item:first-child {
+  margin-top: -18px;
+}
+nav.ui .ui-main .menu-sub .menu-item:last-child {
+  margin-bottom: 18px;
+}
+nav.ui .ui-main .menu-sub .focus {
+  height: 88px !important;
+  background-color: grey;
+}
+nav.ui .ui-main #sub_1 .active, nav.ui .ui-main #sub_2 .active, nav.ui .ui-main #sub_3 .active {
+  background-color: rgba(135, 206, 250, 0.5);
+}
+nav.ui .ui-main #sub_3 .menu-item:first-child {
+  margin-top: -3px;
+}
+nav.ui .ui-main #sub_3 .menu-item:last-child {
+  margin-bottom: 0;
+}
+nav.dir {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  display: none;
+}
+nav.dir button.subnav {
+  position: absolute;
+  z-index: 3;
+  background-color: transparent;
+}
+nav.dir button.subnav:focus {
+  background-color: transparent;
+}
+nav.dir button.subnav.sb {
+  left: 8.75%;
+}
+nav.dir button.subnav.sf {
+  right: 30.25%;
+}
+nav.dir button.subnav.sb, nav.dir button.subnav.sf {
+  width: 65px;
+  height: 65px;
+  top: 47%;
+}
+nav.dir button.subnav.tap {
+  top: 56%;
+  width: 275px;
+  height: 65px;
+  left: 10.65%;
+}
+nav button:focus {
+  background-color: rgba(135, 206, 250, 0.5);
+}
+nav button:focus > h3, nav button:focus > p {
+  opacity: 1 !important;
+}
+nav .active h1,
+nav .active h3,
+nav .active p {
+  opacity: 1 !important;
+}
+nav .active > .accordian-action {
+  border: 1px solid #fff !important;
+  background-color: grey;
+}
+nav .active > .accordian-action h1, nav .active > .accordian-action p {
+  color: #fff;
+  opacity: 1 !important;
+}
+nav .active > .accordian-content {
+  max-height: 1000px;
+  visibility: visible;
+  overflow: visible;
+}
+
+main.container {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  z-index: 2;
+  background-color: black;
+}
+
+/*# sourceMappingURL=output.css.map */

@@ -1,0 +1,42 @@
+* {
+    margin: 0; 
+    padding: 0;
+    border: none;
+    outline: none;
+    &:focus {
+        outline: none;
+    }
+    html {
+        &, body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color:black;
+            z-index: 1;
+            overflow: hidden;
+            body,
+            div,
+            button {
+                transition: .5s;
+                /*cursor: none;*/
+            }
+            section {
+                pointer-events: none;
+                cursor: default;
+            }
+            video { 
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                z-index: -1;
+            }
+            button {
+                border: none;
+            }
+            textarea:focus,
+            input:focus {
+                outline: none;
+            }
+        }
+    }
+}

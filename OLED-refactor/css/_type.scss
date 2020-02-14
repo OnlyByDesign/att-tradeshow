@@ -1,0 +1,61 @@
+$aleck-lght: "AleckCd-Light", Arial, sans-serif;
+$aleck-med: "AleckCd-Medium", Arial, sans-serif;
+$aleck-bold: "AleckCd-Bold", Arial, sans-serif;
+h1, h2, h3, h4, h5, p {
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+}
+h1 {
+    font-family: $aleck-med;
+    font-size: 185%;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+    margin-top: 2.5px;
+}
+h2 {
+    font-family: $aleck-med;
+    font-size: 230%;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 27px;
+    padding: 7.5px 0 10px 0;
+    padding-top: 7.5px;
+    letter-spacing: .5px;
+    opacity: 1;
+}
+h3 {
+    font-family: $aleck-med;
+    font-size: 150%;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 16px 0;
+    line-height: 24px;
+    letter-spacing: 2.75px;
+}
+p {
+    font-family: $aleck-bold;
+    font-size: 20px;
+    text-align: center;
+    &.ui-cta {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        position: absolute;
+        top: -15px;
+        right: 0;
+        left: 0; 
+    }
+}
+button {
+    p {
+        font-family: $aleck-lght;
+        font-size: 19px;
+        margin: 0 auto;
+        margin-top: -4px;
+        line-height: 22.5px;
+        text-transform: none;
+        width: 90%;
+        text-align: center;
+    }
+}
