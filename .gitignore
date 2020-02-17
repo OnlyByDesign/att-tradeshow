@@ -1,9 +1,14 @@
 ATT-Cyber-Hack
-Demo/*
-OLED/*
 media/*
 img/*
+fonts/*
 .mp4
+.mp3
 .gif
 .jpg
 .png
+.svg
+.ttf
+.otf
+.woff
+.woff2

@@ -1,0 +1,135 @@
+* {margin: 0; padding: 0;}
+*:focus {outline: none;}
+html, body {width: 100%; overflow: hidden;}
+div, button, body {transition: .5s; /*cursor: none;*/}
+textarea:focus, input:focus{outline: none;}
+section {pointer-events: none; cursor: default;}
+button {border:none;}
+
+/*Content Styles*/
+body {position: relative; width:100%; height:100%; background-color:black; overflow: hidden; z-index:1;}
+#container {position: relative; top: 0; left: 0; margin: 0 auto; width: 100%; max-width: 1920px; background-color: black; z-index: 2;}
+body video {width: 100%; height: 100vh; object-fit: cover; z-index: -1;}
+
+/*Menu Styles*/
+#ui {display: none;}
+#main-ui {display: block;}
+#over-ui {display: none;}
+
+/*Accordian Menu*/
+.accordian, .accordian * {-webkit-box-sizing:border-box;  -moz-box-sizing:border-box;  box-sizing:border-box;}
+.accordian-action {width:100%; display:block;}
+.accordian-action.active {background: grey; max-height: 100%;}
+.accordian-section, accordian-action, accordian-content { -webkit-transition: max-height .5s; -moz-transition: max-height .5s; transition: max-height .5s;}
+.accordian-content { visibility: hidden; max-height: 0; overflow: hidden;}
+
+#ui {position: absolute; width: 330px; height: fit-content; top: 5%; right: 30px; background-color: transparent; z-index: 3; padding: 18px 16px; border-right: 1px solid #fff; border-left: 1px solid #fff;}
+.menu-top .menu-item {height: 95px; width: 100%; margin-bottom: 18px; display: block; position: relative; overflow: visible !important;}
+.menu-sub .menu-item {height: 75px; width: 100%; display: block; position: relative; overflow: visible !important; margin-bottom: 0;}
+.menu-sub {background-color: rgba(135,206,250,0.05); margin-bottom: 2.5px;}
+.menu-item {background-color: transparent; z-index:2; cursor:pointer; border: 1px solid #fff;}
+.menu-sub .focus {height:88px !important; background-color: grey;}
+
+.menu-sub .menu-item:first-child {margin-top: -18px;}
+.menu-sub .menu-item:last-child {margin-bottom: 18px;}
+#sub_3 .menu-item:first-child {margin-top: -3px;}
+#sub_3 .menu-item:last-child {margin-bottom: 0px;}
+
+.active>button.accordian-action {background-color: grey; border: 1px solid #fff !important;}
+.active>button.accordian-action h1, .active>button.accordian-action p {color: #fff; opacity: 1 !important;}
+.active>.accordian-content { visibility: visible; max-height: 1000px; overflow: visible;}
+#sub_1 .active, #sub_2 .active, #sub_3 .active {background-color: rgba(135,206,250,0.5);}
+.active>h1, .active>h3, .active>p {opacity: 1 !important;}
+
+button:focus {background-color: rgba(135,206,250,0.5);}
+button:focus>h3, button:focus>p {opacity: 1 !important;}
+
+#over-ui {position: absolute; width: 1920px; height:1080px;}
+.subnav {position: absolute; z-index: 3; background-color: transparent;}
+.sb, .sf {width: 65px; height: 65px; top: 47%;}
+.sb {left: 8.75%;} .sf {right: 30.25%;}
+.tap {top: 56%; width: 275px; height: 65px; left: 10.65%;}
+button.subnav:focus {background-color: transparent;}
+
+#reset {height: 175px; width: 200px; position: absolute; z-index: 3; background-color: transparent;}
+#home {background: rgba(135,206,250,0.65) url(../img/home.png) no-repeat center; position: absolute; height: 100px; width: 100px; border: none; background-size: 50px; z-index: 3; bottom: 0; cursor: pointer;}
+
+
+/*Typography*/
+
+h1, h2, h3, h4, h5, p {text-align: center; color: #fff; z-index: 10;}
+
+p.cta {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: absolute;
+    top: -15px;
+    right: 0;
+    left: 0; 
+}
+h1 {
+    font-family: 'AleckCd-Medium', sans-serif;
+    font-size: 185%;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+    margin-top: 2.5px;
+}
+h2 {
+    font-family: 'AleckCmp-Medium', sans-serif;
+    font-size: 230%;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 10px 0px;
+    line-height: 27px;
+    padding-top: 7.5px;
+    letter-spacing: .5px;
+    opacity: 1 !important;
+}
+h3 {
+    font-family: 'AleckCd-Medium', sans-serif;
+    font-size: 150%;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 16px 0px;
+    line-height: 24px;
+    letter-spacing: 2.75px;
+}
+p {
+    font-family: 'AleckSans-Bold';
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+button p {
+    font-family: 'AleckSans-Light', Arial, sans-serif;
+    font-size: 19px;
+    margin: 0 auto;
+    margin-top: -4px;
+    line-height: 22.5px;
+    text-transform: none;
+    width: 90%;
+    text-align: center;
+}
+
+/*Handle Styles*/
+.handler {position: absolute; box-sizing: border-box; width: 100%; height: 100%; top: 0; left: 0;}
+.handler span {position: absolute; width:10px; height:10px; background:rgba(255,255,255,1);}
+
+.dr {bottom:-5px; right:-5px;}
+.ul {top:-5px; left:-5px;}
+.dl {bottom:-5px; left:-5px;}
+.ur {top:-5px; right:-5px;}
+
+.brdr-handler {position: absolute; box-sizing: border-box; width: 100%; height: 100%; top: 0; left: 0;}
+#nav-brdr {position: absolute;width: 31px;height: 1.5px;background-color: white;z-index: 3; }
+#nav-brdr span {width: 15px; height: 7.5px;}
+
+.top-brdr-r {right: -1px; top: -3px;}
+.top-brdr-r span {top: -2px; left: -5px;}
+.top-brdr-l {right: 330px; top: -1px;}
+.top-brdr-l span {top: -4px; right: -3px;}
+.bot-brdr-r {right: -1px; bottom: 0px;}
+.bot-brdr-r span {bottom: -3px; left: -5px;}
+.bot-brdr-l {right: 330px; bottom: 1px;}
+.bot-brdr-l span {bottom: -3px; right: -4px;}

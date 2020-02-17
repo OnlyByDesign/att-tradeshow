@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'AleckCmp-Medium';
+    src: local('ATTAleckCmp-Medium'),
+        url('fonts/ATTAleckCmp-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckCmp-Light';
+    src: local('ATTAleckCmp-Light'),
+        url('fonts/ATTAleckCmp-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckCd-Black';
+    src: local('ATTAleckCd-Black'),
+        url('fonts/ATTAleckCd-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckCd-Bold';
+    src: local('ATTAleckCd-Bold'),
+        url('fonts/ATTAleckCd-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckCd-Light';
+    src: local('ATTAleckCd-Light'),
+        url('fonts/ATTAleckCd-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckCd-Medium';
+    src: local('ATTAleckCd-Medium'),
+        url('fonts/ATTAleckCd-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckCd-Regular';
+    src: local('ATTAleckCd-Regular'),
+        url('fonts/ATTAleckCd-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckSans-Bold';
+    src: local('ATTAleckSans-Bold'),
+        url('fonts/ATTAleckSans-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckSans-Medium';
+    src: local('ATTAleckSans-Medium'),
+        url('fonts/ATTAleckSans-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckSans-Regular';
+    src: local('ATTAleckSans-Regular'),
+        url('fonts/ATTAleckSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AleckSans-Thin';
+    src: local('ATTAleckSans-Thin'),
+        url('fonts/ATTAleckSans-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

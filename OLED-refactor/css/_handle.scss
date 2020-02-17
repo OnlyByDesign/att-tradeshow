@@ -1,24 +1,28 @@
-/*Handle Styles*/
-.handler {
+$size: -5px;
+%base {
     width: 100%; 
     height: 100%;
     position: absolute; 
     top: 0; 
     left: 0;
     box-sizing: border-box; 
+}
+.handle {
+    @extend %base;
     span {
         position: absolute; 
         width:10px; 
         height:10px; 
         background:rgba(255,255,255,1);
     }
-    $size: -5px;
-    .dr { bottom:$size; right:$size; }
-    .ul { top:$size; left:$size; }
-    .dl { bottom:$size; left:$size; }
-    .ur { top:$size; right:$size; }
-    .brdr-handler {position: absolute; box-sizing: border-box; width: 100%; height: 100%; top: 0; left: 0;}
-    #nav-brdr {
+    .tl { top:$size; left:$size; }
+    .tr { top:$size; right:$size; }
+    .bl { bottom:$size; left:$size; }
+    .br { bottom:$size; right:$size; }
+}
+.brdr-handle {
+    @extend %base;
+    .nav-brdr {
         position: absolute;
         width: 31px;
         height: 1.5px;
@@ -27,21 +31,25 @@
         span { width: 15px; 
             height: 7.5px;
         }
-    }
-    .top-brdr-r {
-        right:-1px; top:-3px;
-        span { top:-2px; left:-5px; }
-    }
-    .top-brdr-l {
-        right:330px; top:-1px;
-        span { top:-4px; right:-3px; }
-    }
-    .bot-brdr-r {
-        right:-1px; bottom:0px;
-        span { bottom:-3px; left:-5px; }
-    }
-    .bot-brdr-l {
-        right:330px; bottom:1px;
-        span { bottom:-3px; right:-4px; }
+        &.top-brdr {
+            &-r {
+                right:-1px; top:-3px;
+                span { top:-2px; left:-5px; }
+            }
+            &-l {
+                right:330px; top:-1px;
+                span { top:-4px; right:-3px; }
+            }
+        }
+        &.bot-brdr {
+            &-r {
+                right:-1px; bottom:0px;
+                span { bottom:-3px; left:-5px; }
+            }
+            &-l {
+                right:330px; bottom:1px;
+                span { bottom:-3px; right:-4px; }
+            }
+        }
     }
 }

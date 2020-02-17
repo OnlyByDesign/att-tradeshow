@@ -3,11 +3,13 @@
 @use "keyframes";
 @use "base";
 @use "handle";
-
-section {
-    position: absolute;
+%dimensions {
     width: 1920px; 
     height: 1080px;
+}
+section {
+    @extend %dimensions;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 3;
@@ -119,17 +121,18 @@ nav {
         }
     }
     &.dir {
-        position: absolute; 
-        width: 1920px; 
-        height:1080px;
+        @extend %dimensions;
+        position: absolute;
         display: none;
         button {
             &.subnav {
                 position: absolute; 
                 z-index: 3; 
                 background-color: transparent;
-                &:focus {
-                    background-color: transparent;
+                &.sb, &.sf {
+                    width: 65px; 
+                    height: 65px; 
+                    top: 47%;
                 }
                 &.sb { 
                     left: 8.75%
@@ -137,16 +140,14 @@ nav {
                 &.sf { 
                     right: 30.25%; 
                 }
-                &.sb, &.sf {
-                    width: 65px; 
-                    height: 65px; 
-                    top: 47%;
-                }
                 &.tap {
                     top: 56%; 
                     width: 275px; 
                     height: 65px; 
                     left: 10.65%;
+                }
+                &:focus {
+                    background-color: transparent;
                 }
             }
         }
@@ -181,9 +182,8 @@ nav {
 }
 main {
     &.container {
+        @extend %dimensions;
         position: relative; 
-        width: 100%; 
-        max-width: 1920px; 
         top: 0; 
         left: 0; 
         margin: 0 auto; 

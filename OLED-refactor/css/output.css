@@ -361,7 +361,8 @@ button p {
 *:focus {
   outline: none;
 }
-* html, * html body {
+
+html, html body {
   position: relative;
   width: 100%;
   height: 100%;
@@ -369,35 +370,35 @@ button p {
   z-index: 1;
   overflow: hidden;
 }
-* html body,
-* html div,
-* html button, * html body body,
-* html body div,
-* html body button {
+html body,
+html div,
+html button, html body body,
+html body div,
+html body button {
   transition: 0.5s;
   /*cursor: none;*/
 }
-* html section, * html body section {
-  pointer-events: none;
+html section, html body section {
   cursor: default;
 }
-* html video, * html body video {
+html video, html body video {
   width: 100%;
   height: 100vh;
   object-fit: cover;
   z-index: -1;
+  user-select: none;
+  pointer-events: none;
 }
-* html button, * html body button {
+html button, html body button {
   border: none;
 }
-* html textarea:focus,
-* html input:focus, * html body textarea:focus,
-* html body input:focus {
+html textarea:focus,
+html input:focus, html body textarea:focus,
+html body input:focus {
   outline: none;
 }
 
-/*Handle Styles*/
-.handler {
+.brdr-handle, .handle {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -405,95 +406,81 @@ button p {
   left: 0;
   box-sizing: border-box;
 }
-.handler span {
+
+.handle span {
   position: absolute;
   width: 10px;
   height: 10px;
   background: white;
 }
-.handler .dr {
-  bottom: -5px;
-  right: -5px;
-}
-.handler .ul {
+.handle .tl {
   top: -5px;
   left: -5px;
 }
-.handler .dl {
-  bottom: -5px;
-  left: -5px;
-}
-.handler .ur {
+.handle .tr {
   top: -5px;
   right: -5px;
 }
-
-.brdr-handler {
-  position: absolute;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+.handle .bl {
+  bottom: -5px;
+  left: -5px;
+}
+.handle .br {
+  bottom: -5px;
+  right: -5px;
 }
 
-#nav-brdr {
+.brdr-handle .nav-brdr {
   position: absolute;
   width: 31px;
   height: 1.5px;
   background-color: white;
   z-index: 3;
 }
-
-:last-child #nav-brdr span {
+.brdr-handle .nav-brdr span {
   width: 15px;
   height: 7.5px;
 }
-
-.top-brdr-r {
+.brdr-handle .nav-brdr.top-brdr-r {
   right: -1px;
   top: -3px;
 }
-
-.top-brdr-r span {
+.brdr-handle .nav-brdr.top-brdr-r span {
   top: -2px;
   left: -5px;
 }
-
-.top-brdr-l {
+.brdr-handle .nav-brdr.top-brdr-l {
   right: 330px;
   top: -1px;
 }
-
-.top-brdr-l span {
+.brdr-handle .nav-brdr.top-brdr-l span {
   top: -4px;
   right: -3px;
 }
-
-.bot-brdr-r {
+.brdr-handle .nav-brdr.bot-brdr-r {
   right: -1px;
   bottom: 0px;
 }
-
-.bot-brdr-r span {
+.brdr-handle .nav-brdr.bot-brdr-r span {
   bottom: -3px;
   left: -5px;
 }
-
-.bot-brdr-l {
+.brdr-handle .nav-brdr.bot-brdr-l {
   right: 330px;
   bottom: 1px;
 }
-
-.bot-brdr-l span {
+.brdr-handle .nav-brdr.bot-brdr-l span {
   bottom: -3px;
   right: -4px;
 }
 
-section {
-  position: absolute;
+main.container, nav.dir, section {
   width: 1920px;
   height: 1080px;
+}
+
+section {
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
@@ -591,8 +578,6 @@ nav.ui .ui-main #sub_3 .menu-item:last-child {
 }
 nav.dir {
   position: absolute;
-  width: 1920px;
-  height: 1080px;
   display: none;
 }
 nav.dir button.subnav {
@@ -600,8 +585,10 @@ nav.dir button.subnav {
   z-index: 3;
   background-color: transparent;
 }
-nav.dir button.subnav:focus {
-  background-color: transparent;
+nav.dir button.subnav.sb, nav.dir button.subnav.sf {
+  width: 65px;
+  height: 65px;
+  top: 47%;
 }
 nav.dir button.subnav.sb {
   left: 8.75%;
@@ -609,16 +596,14 @@ nav.dir button.subnav.sb {
 nav.dir button.subnav.sf {
   right: 30.25%;
 }
-nav.dir button.subnav.sb, nav.dir button.subnav.sf {
-  width: 65px;
-  height: 65px;
-  top: 47%;
-}
 nav.dir button.subnav.tap {
   top: 56%;
   width: 275px;
   height: 65px;
   left: 10.65%;
+}
+nav.dir button.subnav:focus {
+  background-color: transparent;
 }
 nav button:focus {
   background-color: rgba(135, 206, 250, 0.5);
@@ -647,8 +632,6 @@ nav .active > .accordian-content {
 
 main.container {
   position: relative;
-  width: 100%;
-  max-width: 1920px;
   top: 0;
   left: 0;
   margin: 0 auto;

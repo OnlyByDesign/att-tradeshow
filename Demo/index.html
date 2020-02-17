@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<head>
+    <!--Meta Tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    
+    <!--Css-->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="css/transitions.css" rel="stylesheet" type="text/css">
+
+    <!--JQuery-->
+    <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+    
+    <!--JS Files-->
+    <script type="text/javascript" src="js/voice.js"></script>
+    
+    <title>Cyber Threat Demo</title>
+</head>
+
+<body>
+    
+    <button id="trigger" class="triggerIn play" data-index="-1" data-src="demo1" data-poster="#">
+        <video width="1920" height="1080" preload="auto" poster="#" autoplay loop>
+            <source src="media/demo0.mp4" type='video/mp4' />
+        </video>
+    </button>
+    <button id="reset"></button>
+    
+    <nav id="ui" class="triggerHome"><p class="cta">Tap a Selection</p>
+        
+        <div id="main-ui" class="main-ui accordian">
+            
+            <div class="menu-top accordian-section">
+                <button id="main_1" class="menu-item accordian-action first" data-index="0" data-src="demo1" data-poster="demo_home">
+                    <h1>AT&amp;T cybersecurity capabilities</h1>
+                    <p>Find out how AT&amp;T gives you unparalleled threat visibility</p>
+                </button>
+                <div id="sub_1" class="menu-sub accordian-content">
+                    <button class="menu-item sub" data-index="1" data-src="demo2a" data-poster="#" data-nav="1"><h3>cybersecurity expertise</h3></button>
+                    <div class="sub_main" data-nav="1">
+                        <button class="hidden" data-index="2" data-src="demo2b" data-poster="#"></button>
+                        <button class="hidden" data-index="3" data-src="demo2c" data-poster="#"></button>
+                        <button class="hidden" data-index="4" data-src="demo2d" data-poster="#"></button>
+                    </div>
+                    <button class="menu-item sub" data-index="5" data-src="demo3a" data-poster="#" data-nav="2"><h3>threat intellect<span style="font-family:AleckSans-Medium">®</span></h3></button>
+                    <div class="sub_main" data-nav="2">
+                        <button class="hidden" data-index="6" data-src="demo3b" data-poster="#"></button>
+                        <button class="hidden" data-index="7" data-src="demo3c" data-poster="#"></button>
+                        <button class="hidden" data-index="8" data-src="demo3d" data-poster="#"></button>
+                        <button class="hidden" data-index="9" data-src="demo3e" data-poster="#"></button>
+                        <button class="hidden" data-index="10" data-src="demo3f" data-poster="#"></button>
+                        <button class="hidden" data-index="11" data-src="demo3g" data-poster="#"></button>
+                        <button class="hidden" data-index="12" data-src="demo3h" data-poster="#"></button>
+                        <button class="hidden" data-index="13" data-src="demo3i" data-poster="#"></button>
+                    </div>
+                    <button class="menu-item sub" data-index="14" data-src="demo4a" data-poster="#" data-nav="3"><h3>network platform virtualization</h3></button>
+                    <button class="menu-item sub" data-index="15" data-src="demo5a" data-poster="#" data-nav="4" style="margin-bottom: 18px"><h3>comprehensive ecosystem</h3></button>
+                    <div class="sub_main" data-nav="4">
+                        <button class="hidden" data-index="16" data-src="demo5b" data-poster="#"></button>
+                        <button class="hidden" data-index="17" data-src="demo5c" data-poster="#"></button>
+                        <button class="hidden last" data-index="18" data-src="demo5d" data-poster="#"></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-top accordian-section">
+                <button id="main_2" class="menu-item accordian-action sub first" data-index="19" data-src="demo6" data-nav="5">
+                    <h1>threat detection scenario</h1>
+                    <p>See how AT&amp;T detects + protects against malware</p>
+                </button>
+                <div class="sub_main" data-nav="5">
+                    <button class="hidden" data-index="20" data-src="demo6a" data-poster="#"></button>
+                    <button class="hidden" data-index="21" data-src="demo6b-c" data-poster="#"></button>
+                    <button class="hidden" data-index="22" data-src="demo6d" data-poster="#"></button>
+                    <button class="hidden" data-index="23" data-src="demo6e" data-poster="#"></button>
+                    <button class="hidden" data-index="24" data-src="demo6f" data-poster="#"></button>
+                    <button class="hidden" data-index="25" data-src="demo6g" data-poster="#"></button>
+                    <button class="hidden" data-index="26" data-src="demo6h" data-poster="#"></button>
+                    <button class="hidden" data-index="27" data-src="demo6i" data-poster="#"></button>
+                    <button class="hidden" data-index="28" data-src="demo6j" data-poster="#"></button>
+                    <button class="hidden" data-index="29" data-src="demo6k" data-poster="#"></button>
+                    <button class="hidden" data-index="30" data-src="demo6l" data-poster="#"></button>
+                    <button class="hidden" data-index="31" data-src="demo6m" data-poster="#"></button>
+                    <button class="hidden" data-index="32" data-src="demo6n" data-poster="#"></button>
+                </div>
+            </div>
+            
+            <div class="menu-top accordian-section">
+                <button id="main_3" class="menu-item accordian-action first" style="margin-bottom: 2.5px;" data-index="33" data-src="demo7" data-poster="#">
+                    <h1>AT&amp;T consulting team</h1>
+                    <p>Explore how AT&amp;T helps you stay ahead of cybercriminals</p>
+                </button>
+                <div id="sub_3" class="menu-sub accordian-content">
+                    <button class="menu-item sub" data-index="34" data-src="demo8a-h" data-poster="#" data-nav="6"><h3>cybersecurity threat trends</h3></button>
+                    <button class="menu-item sub" data-index="35" data-src="demo9a" data-poster="#" data-nav="7"><h3>Who We Are</h3></button>
+                    <div class="sub_main" data-nav="7">
+                        <button class="hidden" data-index="36" data-src="demo9bc" data-poster="#"></button>
+                        <button class="hidden" data-index="37" data-src="demo9d" data-poster="#"></button>
+                        <button class="hidden" data-index="38" data-src="demo9e" data-poster="#"></button>
+                    </div>
+                    <button class="menu-item last sub" data-index="39" data-src="demo10ab" data-poster="#" data-nav="8"><h3>what we do</h3></button>
+                    <div class="sub_main" data-nav="8">
+                        <button class="hidden" data-index="40" data-src="demo10c" data-poster="#"></button>
+                        <button class="hidden" data-index="41" data-src="demo10d" data-poster="#"></button>
+                        <button class="hidden" data-index="42" data-src="demo10e" data-poster="#"></button>
+                        <button class="hidden" data-index="43" data-src="demo10f" data-poster="#"></button>
+                        <button class="hidden" data-index="44" data-src="demo10g" data-poster="#"></button>
+                        <button class="hidden" data-index="45" data-src="demo10h" data-poster="#"></button>
+                        <button class="hidden" data-index="46" data-src="demo10i" data-poster="#"></button>
+                        <button id="final" class="hidden" data-index="47" data-src="demo10j" data-poster="#"></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </nav>
+    
+    <nav class="sub-l">  
+        <button id="prev-l" class="subnav sb" data-src="#"  data-poster="#" data-index="#"></button>
+        <button id="next-l" class="subnav sf" data-src="#" data-poster="#" data-index="#"></button>
+    </nav>
+    <nav class="sub-r">
+        <button id="prev-r" class="subnav sb" data-src="#"  data-poster="#" data-index="#"></button>
+        <button id="next-r" class="subnav sf" data-src="#" data-poster="#" data-index="#"></button>
+    </nav>
+    
+    <!--<button id="home" data-src="demo1" data-poster="#"></button>-->
+    
+    <div id="container">
+        <video id="video" width="1920" height="1080" preload="auto" autoplay></video>
+    </div>
+    
+</body>
