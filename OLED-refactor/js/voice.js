@@ -63,24 +63,24 @@ jQuery(document).ready(function ($) {
     });
     
     //Menu Button Handles
-    function handleMagic() {
-        $(".ui, nav#nav-brdr, button.menu-item").append('<div class="handler"><span class="ul"></span><span class="ur"></span><span class="dr"></span><span class="dl"></span></div>');
-        $(".ui").append('<div class="handler"><div id="nav-brdr" class="top-brdr-l"><span class="ur"></span></div><div id="nav-brdr" class="top-brdr-r"><span class="ul"></span></div><div id="nav-brdr" class="bot-brdr-l"><span class="dr"></span></div><div id="nav-brdr" class="bot-brdr-r"><span class="dl"></span></div></div>');
-    }
+    /*function handleMagic() {
+        $(".ui, .nav-brdr, button.menu-item").append('<div class="handle"><span class="ul"></span><span class="ur"></span><span class="dr"></span><span class="dl"></span></div>');
+        $(".ui").append('<div class="brdr-handle"><div class="nav-brdr top-brdr-l"><span class="ur"></span></div><div class="nav-brdr top-brdr-r"><span class="ul"></span></div><div class="nav-brdr bot-brdr-l"><span class="dr"></span></div><div class="nav-brdr bot-brdr-r"><span class="dl"></span></div></div>');
+    }*/
     
     //On Start Animations
     function openAnimation() {
-        handleMagic();
+        //handleMagic();
         $('h1').css({'color': 'transparent'});
         $('.ui').addClass('start1');
-        $('div.handler').addClass('start2');
+        $('div.handle').addClass('start2');
         setTimeout(function () {
             $('h1').css({'color': '#ffffff'});
         }, 3000);
         $('.ui-main button, .ui p').addClass('start3');
         setTimeout(function () {
             $(".ui").removeClass("start1");
-            $("div.handler").removeClass("start2");
+            $("div.handle").removeClass("start2");
             $(".ui-main button, .ui p").removeClass("start3");
         }, 5000);
     }
