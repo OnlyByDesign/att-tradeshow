@@ -33,10 +33,11 @@ let model = ( ()=> {
 * This part of your App has access to the DOM.
 */
 let view = ( ()=> {
-    const navDOM = { // array of elements to be called later
+    const viewDOM = { // array of elements to be called later
         actv: ".active",
         open: ".open",
         acc: ".accordian",
+        trig: ".trigger",
         ui: ".ui",
         btn: ".ui-button",
         prev: ".prev",
@@ -49,27 +50,65 @@ let view = ( ()=> {
         add: (el, target)=> el(el).classList.add(target), // add class to el
         toggle: (el, target)=> el(el).classList.toggle(target) // toggle class of el
     };
+    const handleMagic = ()=> { // add rect's to corners of navigation
+        const DOM = [ ".ui", ".ui-button", ".nav-brdr" ]; // elements to be called
+        const spanDOM = [ "tl", "tr", "bl", "br" ]; // spans to be added
+        DOM.forEach( (current, index)=> {
+            let el = document.querySelectorAll(current);
+            for (let i = 0; i < el.length; i++) {
+                const newDiv = document.createElement("div");
+                let newHandle = ()=> {
+                    newDiv.classList += "handle-main";
+                    spanDOM.forEach(function(current){
+                        newDiv.innerHTML += `<span class="${current}"></span>`;
+                    });
+                    return newDiv;
+                };
+                let newBorderHandle = ()=> {
+                    el.innerHTML += `
+                    <div class="brdr-handle">
+                        <div class="nav-brdr top-brdr-r">
+                            <span class="tl"></span>
+                        </div>
+                        <div class="nav-brdr top-brdr-l">
+                            <span class="tr"></span>
+                        </div>
+                        <div class="nav-brdr bot-brdr-l">
+                            <span class="br"></span>
+                        </div>
+                        <div class="nav-brdr bot-brdr-r">
+                            <span class="bl"></span>
+                        </div>
+                    </div>`;
+                    /*newDiv.classList += "handle-border";
+                    spanDOM.forEach(function(current){
+                        newDiv.innerHTML += `<span class="${current}"></span>`;
+                    });
+                    return newDiv;*/
+                };
+                if (index !== 2) el.appendChild(newHandle());
+                if (index === 0) el.apend
+            }
+        });
+        console.log("View handleMagic");
+    };
     return {
         closeAccordion: ()=> { // close an accordian menu
             helper.remove(`${navDOM.acc}-action`, navDOM.actv);
             helper.remove(`${navDOM.acc}-content`, navDOM.open);
         },
-        clickEvent: ()=> {
+        clickEvent: (e)=> {
+            let trigger = document.querySelector(viewDOM.trig);
+            if (e.srcElement === trigger) {
+                handleMagic();
+            };
             console.log("View clickEvent");
-        },
-        handleMagic: ()=> {
-            //const handleDOM = [ "" ]
-            console.log("View handleMagic");
         },
         init: ()=> {
             console.log("View init");
         }
     }
 })();
-function handleMagic() {
-    $(".ui, nav#nav-brdr, button.menu-item").append('<div class="handler"><span class="ul"></span><span class="ur"></span><span class="dr"></span><span class="dl"></span></div>');
-    $(".ui").append('<div class="handler"><div id="nav-brdr" class="top-brdr-l"><span class="ur"></span></div><div id="nav-brdr" class="top-brdr-r"><span class="ul"></span></div><div id="nav-brdr" class="bot-brdr-l"><span class="dr"></span></div><div id="nav-brdr" class="bot-brdr-r"><span class="dl"></span></div></div>');
-}
 /*
 *
 * The controller is the decision maker and the glue between the model and view.
@@ -79,24 +118,25 @@ function handleMagic() {
 */
 let controller = ( ( model, view )=> {
     const setupEventListeners = ()=> { // setup event listeners 
-        const targetsDOM = [ "button" ];
-        targetsDOM.forEach(function(current) { // loop through targetDOM 
+        const targetsDOM = [ "section.trigger", "button" ];
+        targetsDOM.forEach(function(current) { // loop through targetDOM
+            const e = event;
             let targets = document.querySelectorAll(current); // get each target
             let onEvent = {
-                click: ()=> { // attach functions to click handler
-                    view.clickEvent();
-                    model.clickEvent();
+                click: (e)=> { // attach functions to click handler
+                    view.clickEvent(e);
+                    model.clickEvent(e);
                 }
             };
             for ( let i = 0; i < targets.length; i++ ) {
-                //  loop through target and add a listener
-                targets[i].addEventListener( "click", ()=> onEvent.click() ); 
+                //  loop through target array and add listener
+                targets[i].addEventListener( "click", ()=> onEvent.click(event) ); 
             };
         });
     };
     return {
         init: ()=> {
-            setupEventListeners(); // call event listeners
+            setupEventListeners(); // call listeners
             model.init(); // import model
             view.init(); // import view
             console.log("Controller init");
