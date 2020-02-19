@@ -51,44 +51,28 @@ let view = ( ()=> {
         toggle: (el, target)=> el(el).classList.toggle(target) // toggle class of el
     };
     const handleMagic = ()=> { // add rect's to corners of navigation
-        const DOM = [ ".ui", ".ui-button", ".nav-brdr" ]; // elements to be called
-        const spanDOM = [ "tl", "tr", "bl", "br" ]; // spans to be added
+        const DOM = [ ".ui", ".ui-button"/*, ".nav-brdr"*/ ]; // elements to be called
         DOM.forEach( (current, index)=> {
-            let el = document.querySelectorAll(current);
-            for (let i = 0; i < el.length; i++) {
-                const newDiv = document.createElement("div");
-                let newHandle = ()=> {
-                    newDiv.classList += "handle-main";
+            const el = document.querySelectorAll(current);
+            const spanDOM = [ "tl", "tr", "bl", "br" ]; // spans to be added
+            let i, newDiv, newClass, newHtml;
+            for (i = 0; i < el.length; i++) {
+                newDiv = document.createElement("div");
+                if (index !== 0)
+                    newClass = "handle handle-main",
+                    newHtml = (c)=> `<span class="${c}"></span>`;
+                else 
+                    newClass = "handle handle-border",
+                    newHtml = (c)=> `<div class="nav-brdr"><span class="${c}"></span></div>`;
+                (()=> {
+                    newDiv.classList += newClass;
                     spanDOM.forEach(function(current){
-                        newDiv.innerHTML += `<span class="${current}"></span>`;
+                        newDiv.innerHTML += newHtml(current);
                     });
                     return newDiv;
-                };
-                let newBorderHandle = ()=> {
-                    el.innerHTML += `
-                    <div class="brdr-handle">
-                        <div class="nav-brdr top-brdr-r">
-                            <span class="tl"></span>
-                        </div>
-                        <div class="nav-brdr top-brdr-l">
-                            <span class="tr"></span>
-                        </div>
-                        <div class="nav-brdr bot-brdr-l">
-                            <span class="br"></span>
-                        </div>
-                        <div class="nav-brdr bot-brdr-r">
-                            <span class="bl"></span>
-                        </div>
-                    </div>`;
-                    /*newDiv.classList += "handle-border";
-                    spanDOM.forEach(function(current){
-                        newDiv.innerHTML += `<span class="${current}"></span>`;
-                    });
-                    return newDiv;*/
-                };
-                if (index !== 2) el.appendChild(newHandle());
-                if (index === 0) el.apend
-            }
+                })();
+                el[i].appendChild(newDiv);
+            };
         });
         console.log("View handleMagic");
     };
@@ -98,7 +82,8 @@ let view = ( ()=> {
             helper.remove(`${navDOM.acc}-content`, navDOM.open);
         },
         clickEvent: (e)=> {
-            let trigger = document.querySelector(viewDOM.trig);
+            let trigger;
+            trigger = document.querySelector(viewDOM.trig);
             if (e.srcElement === trigger) {
                 handleMagic();
             };
