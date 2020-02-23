@@ -50,9 +50,9 @@ let view = ( ()=> {
         add: (el, target)=> el(el).classList.add(target), // add class to el
         toggle: (el, target)=> el(el).classList.toggle(target) // toggle class of el
     };
-    const handleMagic = ()=> { // add rect's to corners of navigation
-        const DOM = [ ".ui", ".ui-button"/*, ".nav-brdr"*/ ]; // elements to be called
-        DOM.forEach( (current, index)=> {
+    const handleMagic = ()=> { // add rect's to corners of navigation for aesthetics
+        const targetDOM = [ viewDOM.ui, viewDOM.btn ]; // elements to be called
+        targetDOM.forEach( (current, index)=> {
             const el = document.querySelectorAll(current);
             const spanDOM = [ "tl", "tr", "bl", "br" ]; // spans to be added
             let i, newDiv, newClass, newHtml;
@@ -76,15 +76,14 @@ let view = ( ()=> {
         });
         console.log("View handleMagic");
     };
+    const closeAccordian = ()=> {
+        helper.remove(`${navDOM.acc}-action`, navDOM.actv);
+        helper.remove(`${navDOM.acc}-content`, navDOM.open);
+    };
     return {
-        closeAccordion: ()=> { // close an accordian menu
-            helper.remove(`${navDOM.acc}-action`, navDOM.actv);
-            helper.remove(`${navDOM.acc}-content`, navDOM.open);
-        },
-        clickEvent: (e)=> {
-            let trigger;
-            trigger = document.querySelector(viewDOM.trig);
-            if (e.srcElement === trigger) {
+        clickEvent: (el, ev)=> { // click function
+            let trigger = document.querySelector(viewDOM.trig);
+            if (el === trigger) {
                 handleMagic();
             };
             console.log("View clickEvent");
@@ -94,6 +93,20 @@ let view = ( ()=> {
         }
     }
 })();
+/*function openAnimation() {
+    $('h1').css({'color': 'transparent'});
+    $('.ui').addClass('start1');
+    $('div.handler').addClass('start2');
+    setTimeout(function () {
+        $('h1').css({'color': '#ffffff'});
+    }, 3000);
+    $('#main-ui button, .ui p').addClass('start3');
+    setTimeout(function () {
+        $(".ui").removeClass("start1");
+        $("div.handler").removeClass("start2");
+        $("#main-ui button, .ui p").removeClass("start3");
+    }, 5000);
+}*/
 /*
 *
 * The controller is the decision maker and the glue between the model and view.
@@ -105,17 +118,19 @@ let controller = ( ( model, view )=> {
     const setupEventListeners = ()=> { // setup event listeners 
         const targetsDOM = [ "section.trigger", "button" ];
         targetsDOM.forEach(function(current) { // loop through targetDOM
-            const e = event;
-            let targets = document.querySelectorAll(current); // get each target
-            let onEvent = {
-                click: (e)=> { // attach functions to click handler
-                    view.clickEvent(e);
-                    model.clickEvent(e);
+            const ev = event; // shorter is better
+            let onEvent, targets;
+            onEvent = {
+                click: (el, ev)=> { // attach functions to click handler
+                    view.clickEvent(el, ev);
+                    model.clickEvent(el, ev);
                 }
-            };
-            for ( let i = 0; i < targets.length; i++ ) {
-                //  loop through target array and add listener
-                targets[i].addEventListener( "click", ()=> onEvent.click(event) ); 
+            },
+            targets = document.querySelectorAll(current); // get each target
+            for ( let i = 0; i < targets.length; i++ ) { // loop through targets
+                targets[i].addEventListener( "click", function() { // maintain `this`
+                    onEvent.click(this, event);
+                });
             };
         });
     };

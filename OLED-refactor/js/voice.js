@@ -1,44 +1,23 @@
 /*jslint browser: true*/
 /*global $, jQuery*/
-// "use strict";
-
-const DOM = {
-    actv: ".active",
-    open: ".open",
-    ui: ".ui",
-    btn: "button",
-    acc:".accordian"
-};
-const helper = {
-    remove: (el, target)=> document.querySelector(el).classList.remove(target),
-    add: (el, target)=> document.querySelector(el).classList.add(target),
-    toggle: (el, target)=> document.querySelector(el).classList.toggle(target)
-};
-
-
-/* Menu section
-* uses accordian.js to handle menu interactions
-*
-*/
-const closeAccordionSection = ()=> { // close an accordian menu
-    helper.remove(`${DOM.acc}-action`, DOM.actv);
-    helper.remove(`${DOM.acc}-content`, DOM.open);
-};
 
 jQuery(document).ready(function ($) {
-
+    
+    //Accordian Menu
+    "use strict";
+    function close_accordion_section() {
+		$('.accordion .accordian-action').removeClass('active');
+		$('.accordion .accordion-content').slideUp().removeClass('open');
+	}
 	$('.accordian-section').click(function (e) {
         var target = $(this),
             currentAttrValue = $(this).attr('href');
 		if ($(e.target).is('.active')) {
-			closeAccordionSection();
+			close_accordion_section();
 		} else {
-			closeAccordionSection();
+			close_accordion_section();
             setTimeout(function () {
-                console.log(target)
-                console.log(target[0])
-                helper.add(target[0], "active");
-                //$(target).addClass('active');
+                $(target).addClass('active');
                 $(target).parentsUntil('.ui').addClass('active');
                 $('.accordion ' + currentAttrValue).slideDown().addClass('open');
             }, 500);
@@ -48,10 +27,10 @@ jQuery(document).ready(function ($) {
     $('.first').click(function (e) {
         var target = $(this);
         $("h1, h3, p").css({'opacity': '0.75'});
-        $(".ui button").css({'border': '1px solid rgba(255,255,255,0.75)'});
+        $(".ui-button").css({'border': '1px solid rgba(255,255,255,0.75)'});
         $(function () {
             if ($(e.target).hasClass('active')) {
-                closeAccordionSection();
+                close_accordion_section();
                 e.preventDefault();
             } else {
                 $('.accordian-section').removeClass('active');
@@ -64,30 +43,30 @@ jQuery(document).ready(function ($) {
     
     //Menu Button Handles
     /*function handleMagic() {
-        $(".ui, .nav-brdr, button.menu-item").append('<div class="handle"><span class="ul"></span><span class="ur"></span><span class="dr"></span><span class="dl"></span></div>');
-        $(".ui").append('<div class="brdr-handle"><div class="nav-brdr top-brdr-l"><span class="ur"></span></div><div class="nav-brdr top-brdr-r"><span class="ul"></span></div><div class="nav-brdr bot-brdr-l"><span class="dr"></span></div><div class="nav-brdr bot-brdr-r"><span class="dl"></span></div></div>');
+        $(".ui, nav#nav-brdr, button.menu-item").append('<div class="handler"><span class="ul"></span><span class="ur"></span><span class="dr"></span><span class="dl"></span></div>');
+        $(".ui").append('<div class="handler"><div id="nav-brdr" class="top-brdr-l"><span class="ur"></span></div><div id="nav-brdr" class="top-brdr-r"><span class="ul"></span></div><div id="nav-brdr" class="bot-brdr-l"><span class="dr"></span></div><div id="nav-brdr" class="bot-brdr-r"><span class="dl"></span></div></div>');
     }*/
     
     //On Start Animations
-    function openAnimation() {
+    /*function openAnimation() {
         //handleMagic();
         $('h1').css({'color': 'transparent'});
         $('.ui').addClass('start1');
-        $('div.handle').addClass('start2');
+        $('div.handler').addClass('start2');
         setTimeout(function () {
             $('h1').css({'color': '#ffffff'});
         }, 3000);
-        $('.ui-main button, .ui p').addClass('start3');
+        $('#main-ui button, .ui p').addClass('start3');
         setTimeout(function () {
             $(".ui").removeClass("start1");
-            $("div.handle").removeClass("start2");
-            $(".ui-main button, .ui p").removeClass("start3");
+            $("div.handler").removeClass("start2");
+            $("#main-ui button, .ui p").removeClass("start3");
         }, 5000);
-    }
+    }*/
     
     //Main Menu Events
-    $("#trigger").click(function () {
-        $('#trigger').removeClass('triggerIn').addClass('triggerOut');
+    $(".trigger").click(function () {
+        $('.trigger').removeClass('triggerIn').addClass('triggerOut');
         setTimeout(function () {
             $('#trigger').css({'display': 'none'}).removeClass('triggerOut');
         }, 1000);
@@ -98,7 +77,7 @@ jQuery(document).ready(function ($) {
     //UI Open    
     $(".ui").click(function () {
         if ($('.ui').hasClass('triggerHome')) {
-            $(".dir").css({'display': 'block'});
+            $("#over-ui").css({'display': 'block'});
             $('.ui').removeClass('triggerHome');
             $('#home').addClass('homeIn');
             setTimeout(function () {
@@ -108,7 +87,7 @@ jQuery(document).ready(function ($) {
     });
     
     //Video Fade
-    $('#trigger, .ui button, #home').on('click', function (e) {
+    $('.trigger, .ui button, .home').on('click', function (e) {
         e.preventDefault();
         var target = $(this),
             videoCurr = $(this).attr('data-src'),
@@ -126,43 +105,43 @@ jQuery(document).ready(function ($) {
     //Nav Reset  
     $('#reset').click(function () {
         $('#home').addClass('overOut');
-        $('.container, .ui').addClass('triggerOut');
-        $('.next, .prev, .tap').attr('data-src', '#').attr('data-index', '#');
+        $('#container, .ui').addClass('triggerOut');
+        $('#next, #prev, #tap').attr('data-src', '#').attr('data-index', '#');
         $('.accordian-section').removeClass('active');
         setTimeout(function () {
             $('#trigger').css({'display': 'block'}).addClass('triggerIn');
             $('#trigger video').get(0).load();
             $('#home').removeClass('overOut').css({'display': 'none'});
             $("h1, h3, p").css({'opacity': '1'});
-            $('.container, .ui').removeClass('triggerOut');
+            $('#container, .ui').removeClass('triggerOut');
             $('.ui').css({'display': 'none'});
         }, 1000);
     });
     $("#home").click(function () {
         $('.accordian-section').removeClass('active');
         $('#home').addClass('overOut');
-        $(".ui-main").css({'display': 'block'});
+        $("#main-ui").css({'display': 'block'});
         $("h1, h3, p").css({'opacity': '1'});
         setTimeout(function () {
             $('#home').removeClass('overOut');
-            $(".dir").css({'display': 'none'});
+            $("#over-ui").css({'display': 'none'});
             $('.ui').addClass('triggerHome');
         }, 1000);
     });
     
     //Cycle Video
-    $('.prev').click(function () {
+    $('#prev').click(function () {
         
         var target = $(this),
             currentIndex = $('button.play').attr('data-index'),
-            applyIndex = $('.prev').attr('data-index', currentIndex),
-            prevCalcIndex = $('.prev').attr('data-index', function (n, v) {return v - 1}),
-            prevIndex = $('.prev').attr('data-index'),
-            prevGetSrc = $(".ui-main button[data-index='" + prevIndex + "']"),
+            applyIndex = $('#prev').attr('data-index', currentIndex),
+            prevCalcIndex = $('#prev').attr('data-index', function (n, v) {return v - 1}),
+            prevIndex = $('#prev').attr('data-index'),
+            prevGetSrc = $("#main-ui button[data-index='" + prevIndex + "']"),
             prevFetch = $(prevGetSrc).data('src'),
-            prevVideo = $('.prev').attr('data-src', prevFetch),
+            prevVideo = $('#prev').attr('data-src', prevFetch),
             videoPrev = $(this).attr('data-src'),
-            videoWrap = $('.container video');
+            videoWrap = $('#container video');
         
         $(videoWrap).fadeOut(250);
         setTimeout(function () {
@@ -184,18 +163,18 @@ jQuery(document).ready(function ($) {
         });
         
     });
-    $('.next').click(function () {
+    $('#next').click(function () {
         
         var target = $(this),
             currentIndex = $('button.play').attr('data-index'),
-            applyIndex = $('.next').attr('data-index', currentIndex),
-            nextCalcIndex = $('.next').attr('data-index', function (n, v) {return v++ + 1}),
-            nextIndex = $('.next').attr('data-index'),
-            nextGetSrc = $(".ui-main button[data-index='" + nextIndex + "']"),
+            applyIndex = $('#next').attr('data-index', currentIndex),
+            nextCalcIndex = $('#next').attr('data-index', function (n, v) {return v++ + 1}),
+            nextIndex = $('#next').attr('data-index'),
+            nextGetSrc = $("#main-ui button[data-index='" + nextIndex + "']"),
             nextFetch = $(nextGetSrc).data('src'),
-            nextVideo = $('.next').attr('data-src', nextFetch),
+            nextVideo = $('#next').attr('data-src', nextFetch),
             videoNext = $(this).attr('data-src'),
-            videoWrap = $('.container video');
+            videoWrap = $('#container video');
         
         $(videoWrap).fadeOut(250);
         setTimeout(function () {
@@ -227,18 +206,19 @@ jQuery(document).ready(function ($) {
                 }, 1000);
             }
         });
+        
     });
-    $('.tap').click(function () {
+    $('#tap').click(function () {
         
         var target = $(this),
             currentTap = $('button.play').attr('data-tap'),
-            applyTap = $('.tap').attr('data-src', currentTap),
+            applyTap = $('#tap').attr('data-src', currentTap),
             videoTap = $(this).attr('data-src'),
-            tapGetIndex = $(".ui-main button[data-src='" + currentTap + "']"),
+            tapGetIndex = $("#main-ui button[data-src='" + currentTap + "']"),
             indexFetch = $(tapGetIndex).attr('data-index'),
-            tapIndexApply = $('.tap').attr('data-index', indexFetch),
+            tapIndexApply = $('#tap').attr('data-index', indexFetch),
             indexTap = $(this).attr('data-index'),
-            videoWrap = $('.container video');
+            videoWrap = $('#container video');
             
         $(videoWrap).fadeOut(250);
         setTimeout(function () {
@@ -254,16 +234,14 @@ jQuery(document).ready(function ($) {
                 setTimeout(function () {
                     $(tapGetIndex).parents().addClass('active');
                 }, 500);
-            } else { 
-                ($(tapGetIndex).is('.accordian-action')); {
-                    $('.accordian-section').removeClass('active');
-                    setTimeout(function () {
-                        $(tapGetIndex).parents().addClass('active');
-                    }, 500);
-                }
-            }
+            } else { ($(tapGetIndex).is('.accordian-action')); {
+                $('.accordian-section').removeClass('active');
+                setTimeout(function () {
+                    $(tapGetIndex).parents().addClass('active');
+                }, 500);
+            } }
         });
-
+        
     });
     
     // Stop Context Menu
