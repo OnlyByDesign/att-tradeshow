@@ -26,16 +26,17 @@ $size: -5px;
             background-color: white;
             z-index: 3; 
             span {
+                position: absolute;
                 width: 15px; 
                 height: 7.5px;
+                background: white;
             }
             &:nth-child(1) {
-                right:-1px; top:-3px;
-                span { top:-2px; left:-5px; }
+                span { top:-3px; left:18px; }
             }
             &:nth-child(2) {
-                right:-1px; top:-3px;
-                span { top:-2px; left:-5px; }
+                right:-1px; top:-1px;
+                span { top:-3px; left:-5px; }
             }
             &:nth-child(3) {
                 right:-1px; bottom:0px;
