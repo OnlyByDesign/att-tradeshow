@@ -143,4 +143,8 @@ let controller = ( ( model, view )=> {
         }
     }
 })( model, view );
+
+/*
+* Initilize the whole thing
+*/
 controller.init();
